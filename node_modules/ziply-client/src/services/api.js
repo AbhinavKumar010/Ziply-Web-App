@@ -69,7 +69,7 @@ export const productAPI = {
               }
             });
           }
-        } else {
+        } else if (key !== 'imageFiles') { // Skip imageFiles as we handle it separately
           formData.append(key, productData[key]);
         }
       });
@@ -110,7 +110,7 @@ export const productAPI = {
               }
             });
           }
-        } else {
+        } else if (key !== 'imageFiles') { // Skip imageFiles as we handle it separately
           formData.append(key, productData[key]);
         }
       });

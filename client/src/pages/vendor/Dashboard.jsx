@@ -64,8 +64,6 @@ import {
   InputLabel,
   Select,
   InputAdornment,
-  Close,
-  AddPhotoAlternate,
 } from '@mui/material';
 import {
   Add as AddIcon,
@@ -99,6 +97,8 @@ import {
   PhotoCamera as PhotoCameraIcon,
   FilterList as FilterListIcon,
   Sort as SortIcon,
+  Close,
+  AddPhotoAlternate,
 } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
 import { productAPI, orderAPI } from '../../services/api';
