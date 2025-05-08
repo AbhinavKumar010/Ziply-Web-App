@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "install": "cd client && npm install",
-    "build": "cd client && npm install && npm run build",
-    "start": "cd client && npm run preview"
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "start": "cd client && npm run preview",
+    "dev": "cd client && npm run dev"
   },
   "engines": {
     "node": "18.x",
