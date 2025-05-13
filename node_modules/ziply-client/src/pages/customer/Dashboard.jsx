@@ -317,7 +317,7 @@ const CustomerDashboard = () => {
     try {
       const response = await orderAPI.getLiveOrders();
       if (response?.data) {
-        setLiveOrders(response.data);
+      setLiveOrders(response.data);
       }
     } catch (error) {
       console.error('Error fetching live orders:', error);
@@ -789,13 +789,13 @@ const CustomerDashboard = () => {
     const imageUrl = product.images?.[0]?.url || product.image || '/placeholder-product.jpg';
     
     return (
-      <Card 
-        sx={{ 
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
+    <Card
+      sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
           transition: 'transform 0.2s',
-          '&:hover': {
+        '&:hover': {
             transform: 'translateY(-4px)',
             boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
           }
@@ -820,15 +820,15 @@ const CustomerDashboard = () => {
         <CardContent sx={{ flexGrow: 1 }}>
           <Typography gutterBottom variant="h6" component="div" noWrap>
             {product.name}
-          </Typography>
+        </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             {product.description}
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="h6" color="primary">
               ₹{product.price}
-            </Typography>
-            <Button 
+        </Typography>
+            <Button
               variant="contained" 
               color="primary"
               onClick={() => handleAddToCart(product)}
@@ -838,8 +838,8 @@ const CustomerDashboard = () => {
             </Button>
           </Box>
         </CardContent>
-      </Card>
-    );
+    </Card>
+  );
   };
 
   const handleCancelOrder = async (orderId) => {
@@ -1123,11 +1123,11 @@ const CustomerDashboard = () => {
       
       if (response) {
         // Clear cart after successful order
-        setCart({ items: [], total: 0 });
+      setCart({ items: [], total: 0 });
         setCheckoutOpen(false);
         setOrderDetails(response.data);
         setOrderSuccessOpen(true);
-        showSnackbar('Order placed successfully!', 'success');
+      showSnackbar('Order placed successfully!', 'success');
       } else {
         throw new Error('Failed to create order');
       }
@@ -1589,9 +1589,9 @@ const CustomerDashboard = () => {
 
   const handleAddressSelect = (address) => {
     try {
-      setSelectedAddress(address);
-      setDeliveryAddress(`${address.street}, ${address.city}, ${address.state} - ${address.zipCode}`);
-      setAddressDialogOpen(false);
+    setSelectedAddress(address);
+    setDeliveryAddress(`${address.street}, ${address.city}, ${address.state} - ${address.zipCode}`);
+    setAddressDialogOpen(false);
       showSnackbar('Delivery address selected successfully', 'success');
     } catch (error) {
       console.error('Error selecting address:', error);
@@ -1606,11 +1606,11 @@ const CustomerDashboard = () => {
         return;
       }
 
-      const addressToAdd = {
-        id: addresses.length + 1,
-        ...newAddress,
-        isDefault: addresses.length === 0 // Make first address default
-      };
+    const addressToAdd = {
+      id: addresses.length + 1,
+      ...newAddress,
+      isDefault: addresses.length === 0 // Make first address default
+    };
 
       setAddresses(prev => [...prev, addressToAdd]);
       
@@ -1620,15 +1620,15 @@ const CustomerDashboard = () => {
         setDeliveryAddress(`${addressToAdd.street}, ${addressToAdd.city}, ${addressToAdd.state} - ${addressToAdd.zipCode}`);
       }
 
-      setNewAddress({
-        street: '',
-        city: '',
-        state: '',
-        zipCode: '',
-        isDefault: false
-      });
+    setNewAddress({
+      street: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      isDefault: false
+    });
       
-      showSnackbar('Address added successfully', 'success');
+    showSnackbar('Address added successfully', 'success');
     } catch (error) {
       console.error('Error adding address:', error);
       showSnackbar('Failed to add address', 'error');
@@ -1638,8 +1638,8 @@ const CustomerDashboard = () => {
   const handleSetDefaultAddress = (addressId) => {
     try {
       const updatedAddresses = addresses.map(addr => ({
-        ...addr,
-        isDefault: addr.id === addressId
+      ...addr,
+      isDefault: addr.id === addressId
       }));
       
       setAddresses(updatedAddresses);
@@ -1651,7 +1651,7 @@ const CustomerDashboard = () => {
         setDeliveryAddress(`${defaultAddress.street}, ${defaultAddress.city}, ${defaultAddress.state} - ${defaultAddress.zipCode}`);
       }
       
-      showSnackbar('Default address updated', 'success');
+    showSnackbar('Default address updated', 'success');
     } catch (error) {
       console.error('Error setting default address:', error);
       showSnackbar('Failed to update default address', 'error');
@@ -1660,10 +1660,10 @@ const CustomerDashboard = () => {
 
   const handleDeleteAddress = (addressId) => {
     try {
-      if (addresses.length <= 1) {
-        showSnackbar('Cannot delete the only address', 'error');
-        return;
-      }
+    if (addresses.length <= 1) {
+      showSnackbar('Cannot delete the only address', 'error');
+      return;
+    }
 
       const updatedAddresses = addresses.filter(addr => addr.id !== addressId);
       setAddresses(updatedAddresses);
@@ -1675,7 +1675,7 @@ const CustomerDashboard = () => {
         setDeliveryAddress(`${defaultAddress.street}, ${defaultAddress.city}, ${defaultAddress.state} - ${defaultAddress.zipCode}`);
       }
 
-      showSnackbar('Address deleted successfully', 'success');
+    showSnackbar('Address deleted successfully', 'success');
     } catch (error) {
       console.error('Error deleting address:', error);
       showSnackbar('Failed to delete address', 'error');
@@ -1862,19 +1862,19 @@ const CustomerDashboard = () => {
                 fontSize: 24,
               },
             }} />
-            <Typography
+          <Typography
               variant="h5"
-              noWrap
-              component="div"
-              sx={{
+            noWrap
+            component="div"
+            sx={{
                 color: 'white',
                 fontWeight: 700,
                 letterSpacing: '1px',
                 textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
-              }}
-            >
-              ZIPLY
-            </Typography>
+            }}
+          >
+            ZIPLY
+          </Typography>
           </Box>
           <Box sx={{ 
             display: 'flex', 
@@ -1883,9 +1883,9 @@ const CustomerDashboard = () => {
               gap: '4px',
             },
           }}>
-            <IconButton
-              color="inherit"
-              onClick={() => setCartOpen(true)}
+          <IconButton
+            color="inherit"
+            onClick={() => setCartOpen(true)}
               sx={{ 
                 color: 'white', 
                 mr: 1,
@@ -1894,14 +1894,14 @@ const CustomerDashboard = () => {
                   padding: '8px',
                 },
               }}
-            >
-              <Badge badgeContent={cart.items.length} color="error">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
-            <IconButton
-              color="inherit"
-              onClick={() => setNotificationsDialogOpen(true)}
+          >
+            <Badge badgeContent={cart.items.length} color="error">
+              <ShoppingCart />
+            </Badge>
+          </IconButton>
+          <IconButton
+            color="inherit"
+            onClick={() => setNotificationsDialogOpen(true)}
               sx={{ 
                 color: 'white', 
                 mr: 1,
@@ -1910,11 +1910,11 @@ const CustomerDashboard = () => {
                   padding: '8px',
                 },
               }}
-            >
-              <Badge badgeContent={notifications.length} color="error">
-                <Notifications />
-              </Badge>
-            </IconButton>
+          >
+            <Badge badgeContent={notifications.length} color="error">
+              <Notifications />
+            </Badge>
+          </IconButton>
             <IconButton 
               onClick={() => setProfileDialogOpen(true)}
               sx={{
@@ -1923,22 +1923,22 @@ const CustomerDashboard = () => {
                 },
               }}
             >
-              <Avatar
-                sx={{
-                  width: 32,
-                  height: 32,
+            <Avatar
+              sx={{
+                width: 32,
+                height: 32,
                   bgcolor: 'white',
                   color: '#FF0000',
-                  fontWeight: 600,
+                fontWeight: 600,
                   '@media (max-width: 600px)': {
                     width: 28,
                     height: 28,
                   },
-                }}
-              >
-                {user?.name ? user.name.charAt(0).toUpperCase() : 'C'}
-              </Avatar>
-            </IconButton>
+              }}
+            >
+              {user?.name ? user.name.charAt(0).toUpperCase() : 'C'}
+            </Avatar>
+          </IconButton>
           </Box>
         </Toolbar>
       </AppBar>

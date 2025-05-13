@@ -133,7 +133,7 @@ router.post('/', auth, authorize('customer'), async (req, res) => {
     // Get io instance from app
     const io = req.app.get('io');
     if (io) {
-      // Emit order created event
+    // Emit order created event
       io.emit('newOrder', order);
     }
 

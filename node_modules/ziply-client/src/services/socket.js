@@ -24,13 +24,13 @@ class SocketService {
     }
 
     this.isConnecting = true;
-    const token = localStorage.getItem('token');
+      const token = localStorage.getItem('token');
     
-    if (!token) {
-      console.warn('No token available for socket connection');
+      if (!token) {
+        console.warn('No token available for socket connection');
       this.isConnecting = false;
-      return;
-    }
+        return;
+      }
 
     try {
       this.socket = io(SOCKET_URL, {

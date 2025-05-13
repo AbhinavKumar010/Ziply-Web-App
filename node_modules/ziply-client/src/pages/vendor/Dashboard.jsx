@@ -1631,7 +1631,7 @@ function VendorDashboard() {
       <DialogTitle sx={{ bgcolor: '#FF0000', color: 'white' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="h6" sx={{ fontWeight: 600 }}>
-            {selectedProduct ? 'Edit Product' : 'Add New Product'}
+        {selectedProduct ? 'Edit Product' : 'Add New Product'}
           </Typography>
           <IconButton onClick={handleCloseDialog} sx={{ color: 'white' }}>
             <Close />
@@ -1692,17 +1692,17 @@ function VendorDashboard() {
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>Category</InputLabel>
                 <Select
-                  value={formData.category}
+                value={formData.category}
                   onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
                   label="Category"
-                  required
-                >
-                  <MenuItem value="groceries">Groceries</MenuItem>
-                  <MenuItem value="produce">Produce</MenuItem>
-                  <MenuItem value="dairy">Dairy</MenuItem>
+                required
+              >
+                <MenuItem value="groceries">Groceries</MenuItem>
+                <MenuItem value="produce">Produce</MenuItem>
+                <MenuItem value="dairy">Dairy</MenuItem>
                   <MenuItem value="bakery">Bakery</MenuItem>
-                  <MenuItem value="meat">Meat</MenuItem>
-                  <MenuItem value="seafood">Seafood</MenuItem>
+                <MenuItem value="meat">Meat</MenuItem>
+                <MenuItem value="seafood">Seafood</MenuItem>
                   <MenuItem value="frozen">Frozen Foods</MenuItem>
                   <MenuItem value="snacks">Snacks</MenuItem>
                   <MenuItem value="beverages">Beverages</MenuItem>
@@ -1748,7 +1748,7 @@ function VendorDashboard() {
                     <Typography variant="body2" color="text.secondary">
                       or drag and drop
                     </Typography>
-                  </Box>
+              </Box>
                 </Box>
               </Box>
               {formData.images.length > 0 && (
@@ -1773,7 +1773,7 @@ function VendorDashboard() {
                           objectFit: 'cover',
                         }}
                       />
-                      <IconButton
+                          <IconButton
                         size="small"
                         sx={{
                           position: 'absolute',
@@ -1785,10 +1785,10 @@ function VendorDashboard() {
                             bgcolor: 'rgba(0,0,0,0.7)',
                           },
                         }}
-                        onClick={() => handleRemoveImage(index)}
-                      >
+                            onClick={() => handleRemoveImage(index)}
+                          >
                         <Close fontSize="small" />
-                      </IconButton>
+                          </IconButton>
                     </Box>
                   ))}
                 </Box>
@@ -1988,8 +1988,8 @@ function VendorDashboard() {
           Close
         </Button>
         {selectedOrder?.status === 'processing' && (
-          <Button
-            variant="contained"
+        <Button
+          variant="contained"
             color="success"
             onClick={() => {
               // Handle order status update
